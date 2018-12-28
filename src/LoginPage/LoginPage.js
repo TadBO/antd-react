@@ -6,6 +6,8 @@
  * @last Modified time: 2018/12/27
  **/
 import React, { Component } from 'react';
+import Login from './LoginForm';
+import './login.css'
 export default class LoginPage extends Component{
     constructor() {
         super();
@@ -13,7 +15,9 @@ export default class LoginPage extends Component{
     }
     render() {
         return (
-            <div>登录页面</div>
+            <div className="login-main">
+                <Login className="login-form"/>
+            </div>
         );
     }
 }

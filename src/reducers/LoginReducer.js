@@ -18,7 +18,8 @@ export default function (state = initialState, action) {
         case LOGIN: {
             return {
                 ...state,
-                userInfo: action.payload
+                username: action.payload.username,
+                password: action.payload.password
             }
         }
         default:

@@ -9,11 +9,24 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Redirect, Route, Switch} from "react-router-dom";
 import {Layout, Menu} from "antd";
 import Routers from './routers';
+import store from './store';
+
 
 const {Header, Footer} = Layout;
 
 export default class Main extends Component{
-
+    constructor() {
+        super();
+        this.state = {
+            userInfo: ''
+        }
+    }
+    componentDidMount() {
+        console.log(store.getState());
+        this.setState({
+            userInfo: store.getState().login
+        });
+    }
     render() {
         return (
             <Router>
@@ -31,6 +44,9 @@ export default class Main extends Component{
                             <Menu.Item key="2"> <Link to="news">新闻</Link></Menu.Item>
                             <Menu.Item key="3"> <Link to="about">关于我们</Link></Menu.Item>
                         </Menu>
+                        <div className="user">
+                            <p>欢迎您：{this.state.userInfo.username}</p>
+                        </div>
                     </Header>
                     {/*主体部分*/}
                     <div className="main">

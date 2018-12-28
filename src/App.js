@@ -8,13 +8,11 @@ import store from "./store";
 class App extends Component {
     constructor() {
         super();
-        console.log("initial state: ", store.getState());
         this.state = {
-            userInfo: store.getState().login
         }
     }
     isLogin() {
-        if (this.state.userInfo.username) {
+        if (store.getState().login.username) {
             return true;
         } else {
             return false;
